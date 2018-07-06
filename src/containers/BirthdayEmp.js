@@ -4,7 +4,7 @@ import TableEmployee from '../components/TableEmp';
 class BirthdayEmp extends React.Component {
 
   constructor(props) {
-      super(props)
+      super(props);
       this.state = {
         employees: [],
         error: ''
@@ -25,16 +25,16 @@ class BirthdayEmp extends React.Component {
     fetch(`http://10.71.112.132:8080/EmployeeDemo/Employees/Birthday/${month}`, myInit)
       .then((response) => {
         if (response.ok) {
-          return response.json()
+          return response.json();
         } else {
           throw new Error('something went wrong!');
           }
       })
       .then((employees) => {
-        this.setState({ employees: employees, error: false })
+        this.setState({ employees: employees, error: false });
       })
       .catch((error) => {
-        this.setState({ error: true })
+        this.setState({ error: true });
       });
   }
 

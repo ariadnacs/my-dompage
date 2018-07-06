@@ -4,7 +4,7 @@ import TableEmployee from '../components/TableEmp';
 class SearchEmployee extends React.Component {
 
   constructor(props) {
-      super(props)
+      super(props);
       this.state = {
         name: "",
         lastname: "",
@@ -25,9 +25,6 @@ class SearchEmployee extends React.Component {
     e.preventDefault();
     this.setState({ loading: true });
     const { name, lastname } = this.state;
-    //let urlParams = new URLSearchParams(window.location.search);
-    //let fname = urlParams.get('name');
-    //let flastname = urlParams.get('lastname');
 
     let myHeaders = new Headers({
       "Content-Type": "application/json;charset=UTF-8 "
@@ -40,16 +37,16 @@ class SearchEmployee extends React.Component {
     fetch(`http://10.71.112.132:8080/EmployeeDemo/Employees?name=${name}&lastname=${lastname}`, myInit)
       .then((response) => {
         if (response.ok) {
-          return response.json()
+          return response.json();
         } else {
           throw new Error('something went wrong!');
           }
       })
       .then((employees) => {
-        this.setState({ employees: employees, error: false, loading: false  })
+        this.setState({ employees: employees, error: false, loading: false  });
       })
       .catch((error) => {
-        this.setState({ error: true, loading: false })
+        this.setState({ error: true, loading: false });
       });
   }
 
